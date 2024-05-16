@@ -1,4 +1,4 @@
-- Make room grid
+Danny - Make room grid
 - Add doors to rooms (enums for door / locked / no door
 - key class containing two room ID's
 - key array in player status
