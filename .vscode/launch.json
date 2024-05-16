@@ -7,24 +7,11 @@
     {
       "name": "Debug in Chrome",
       "preLaunchTask": "npm: build",
-      "type": "pwa-chrome",
+      "type": "firefox",
       "request": "launch",
       "file": "${workspaceFolder}/html/index.html",
-      "outFiles": [
-        "${workspaceFolder}/build/*.js"
-      ],
+      "url": "localhost:7000",
       "webRoot": "${workspaceFolder}",
     },
-    {
-      "name": "Debug in Edge",
-      "type": "pwa-msedge",
-      "preLaunchTask": "npm: build",
-      "request": "launch",
-      "file": "${workspaceFolder}/html/index.html",
-      "outFiles": [
-        "${workspaceFolder}/build/*.js"
-      ],
-      "webRoot": "${workspaceFolder}",
-    }
   ]
 }
