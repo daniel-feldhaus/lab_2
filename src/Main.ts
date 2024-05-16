@@ -79,7 +79,20 @@ abstract class RoomObj {
    * @param status - The player's current status.
    * @returns The next room the player moves to.
    */
-  abstract process_command(command: string, status: PlayerStatus): Room;
+  process_command(command: string, status: PlayerStatus): Room {
+    switch(command) {
+      case "north":
+          break;
+      case "west":
+        break;
+      case "south":
+        break;
+      case "east":
+        break;
+      case "take key":
+        break;
+    }
+  }
 
   /**
    * Handles the player entering the room.
@@ -122,6 +135,7 @@ class RoomGrid {
 
 export function play(): void {
   let room_grid = new RoomGrid(3, 3);
+
   console.info("Welcome to the text adventure! Open your browser's developer console to play.");
 
   let playerName = PromptNonEmpty("Please enter your name.");
