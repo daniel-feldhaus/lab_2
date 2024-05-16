@@ -1,0 +1,3 @@
+- Make room grid
+- Add doors to rooms (4 nullable rooms (n s e w))
+- 
