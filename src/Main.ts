@@ -40,21 +40,6 @@ abstract class RoomObj {
   abstract process_command(command: string, status: PlayerStatus): Room;
 
   /**
-   * Prompts the player to enter a command.
-   * @returns The command entered by the player.
-   */
-  getCommand(): string {
-    console.warn("Please enter a command.");
-    let command: string | null = prompt("Please enter a command.");
-    while (command == null || command == "") {
-      console.error("Invalid input.");
-      command = prompt("Please enter a command.");
-    }
-    console.log(command);
-    return command;
-  }
-
-  /**
    * Handles the player entering the room.
    * @param status - The player's current status.
    * @returns The next room the player moves to.
@@ -62,7 +47,7 @@ abstract class RoomObj {
   enter(status: PlayerStatus) {
     this.describe(status);
     status.room = this.room;
-    let command = this.getCommand()
+    let command = PromptNonEmpty("Please enter a command.");
     return this.process_command(command, status);
   }
 }
@@ -157,19 +142,15 @@ class RoomC extends RoomObj {
   }
 }
 
-/**
- * Prompts the player to enter their name.
- * @returns The player's name.
- */
-function getPlayerName(): string {
-  console.warn("Please enter your name.");
-  let playerName: string | null = prompt("Please enter your name.");
-  while (!playerName) {
+function PromptNonEmpty(message: string): string {
+  console.warn(message);
+  let input: string | null = prompt(message);
+  while(input == null || input == "") {
     console.error("Invalid input.");
-    playerName = prompt("Please enter your name.");
+    input = prompt(message);
   }
-  console.log(playerName);
-  return playerName;
+  console.log(input);
+  return input;
 }
 
 
@@ -183,7 +164,7 @@ const rooms = {
 export function play(): void {
   console.info("Welcome to the text adventure! Open your browser's developer console to play.");
 
-  let playerName = getPlayerName();
+  let playerName = PromptNonEmpty("Please enter your name.");
 
   console.info("Hello, " + playerName + ".");
   console.info("You are in a building. Your goal is to exit this building.");
