@@ -1,3 +1,5 @@
 - Make room grid
 - Add doors to rooms (4 nullable rooms (n s e w))
-- 
+- key class containing two room ID's
+- key array in player status
+- logic for commands
