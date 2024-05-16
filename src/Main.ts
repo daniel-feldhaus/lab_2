@@ -16,13 +16,47 @@ type Room = "Start" | "A" | "B" | "C" | "Exit";
  */
 class PlayerStatus {
   room: Room = "Start";
-  hasKey: boolean = false;
+  keys: string[] = [];
   windowOpen: boolean = false;
-}
+
 
 /**
  * Abstract base class for room objects.
+ * @param key -key add
  */
+addkey(key: string): void {
+  if (!this.keys.includes(key)) {
+    this.keys.push(key);
+    console.info("Key added: " + key);
+  } else {
+    console.info("already have this key.");
+  }
+}
+
+
+/**
+ * @param key - Key to check
+ * @return true if player has the key
+ */
+hasKey(key: string): boolean {
+  return this.keys.includes(key);
+}
+
+ /**
+   * Removes a key from the player
+   * @param key -key to remove.
+   */
+
+  removeKey(key: string): void {
+    const index = this.keys.indexOf(key);
+    if (index > -1) {
+      this.keys.splice(index, 1);
+      console.info("Key removed: " + key);
+    }
+  }
+}
+
+
 abstract class RoomObj {
   abstract room: Room;
   /**
