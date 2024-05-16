@@ -54,7 +54,7 @@ addkey(key: Key): void {
  * @param key - Key to check
  * @return true if player has the key
  */
-hasKey(key: string): boolean {
+hasKey(key: Key): boolean {
   return this.keys.includes(key);
 }
 
@@ -63,7 +63,7 @@ hasKey(key: string): boolean {
    * @param key -key to remove.
    */
 
-  removeKey(key: string): void {
+  removeKey(key: Key): void {
     const index = this.keys.indexOf(key);
     if (index > -1) {
       this.keys.splice(index, 1);
