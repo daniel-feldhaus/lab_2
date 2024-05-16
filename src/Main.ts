@@ -11,6 +11,9 @@
 
 type Room = "Start" | "A" | "B" | "C" | "Exit";
 
+//trantrav
+type Door = "door" | "locked" | "no door"
+
 /**
  * Class to track the player's status.
  */
