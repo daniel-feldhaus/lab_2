@@ -61,6 +61,8 @@ hasKey(key: string): boolean {
 
 
 abstract class RoomObj {
+  abstract x: number;
+  abstract y: number;
   north: Door = "no door"
   west: Door = "no door";
   south: Door = "no door";
@@ -80,6 +82,7 @@ abstract class RoomObj {
    * @returns The next room the player moves to.
    */
   process_command(command: string, status: PlayerStatus): Room {
+    //Add logic for moving around by x/y index
     switch(command) {
       case "north":
           break;
