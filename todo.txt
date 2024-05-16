@@ -1,5 +1,7 @@
 - Make room grid
-- Add doors to rooms (4 nullable rooms (n s e w))
+- Add doors to rooms (enums for door / locked / no door
 - key class containing two room ID's
 - key array in player status
 - logic for commands
+- generic description function (print description string, if key mention key, etc.)
+- tests
