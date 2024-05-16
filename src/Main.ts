@@ -14,12 +14,25 @@ type Room = "Start" | "A" | "B" | "C" | "Exit";
 //trantrav
 type Door = "door" | "locked" | "no door"
 
+class Key {
+  from_x: number;
+  from_y: number;
+  to_x: number;
+  to_y: number;
+  constructor(from_x: number, from_y: number, to_x: number, to_y: number) {
+   this.from_x = from_x;
+   this.from_y = from_y;
+   this.to_x = to_x;
+   this.to_y = to_y;
+  }
+}
+
 /**
  * Class to track the player's status.
  */
 class PlayerStatus {
   room: Room = "Start";
-  keys: string[] = [];
+  keys: Key[] = [];
   windowOpen: boolean = false;
 
 
@@ -27,7 +40,7 @@ class PlayerStatus {
  * Abstract base class for room objects.
  * @param key -key add
  */
-addkey(key: string): void {
+addkey(key: Key): void {
   if (!this.keys.includes(key)) {
     this.keys.push(key);
     console.info("Key added: " + key);
